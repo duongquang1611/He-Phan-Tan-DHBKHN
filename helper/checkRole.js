@@ -1,12 +1,9 @@
-// const env = require('../helper/environment');
-
 const hasUserId = (req, res, next) => {
     let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     console.log("fullUrl", fullUrl);
-    
-    
-    // console.log(req.session.infoUser);
+
     if (req.session.infoUser) {
+        // console.log('req.session.infoUser: ', req.session.infoUser);
         next();
     } else {
         req.session.validUrl = fullUrl;
